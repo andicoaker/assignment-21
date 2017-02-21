@@ -1,8 +1,9 @@
-console.log('wowow')
-// import $ from 'jquery';
-// import {EtsyCollection, EtsyListingsModel} from './models/models.js'
-// import{_buildHtmlTemplate} from './views/views.js'
 
+$.getJSON('https://openapi.etsy.com/v2/listings/active.js?api_key=kt6smfs5wci2wuc9rv7jipxm&callback=?').then(function(serverRes){
+ // 	console.log(serverRes)
+ })
+
+// ******* ROUTER ********
 
 const AppRouter = Backbone.Router.extend({
 	initialize: function(){
@@ -25,7 +26,6 @@ const AppRouter = Backbone.Router.extend({
 			viewInstance.render(productListignsModelsList, 'root', {})
 		})
   },
-
 
   showSingleProductListing: function(){
     let singleProductModel = new EtsyListingsModel()
