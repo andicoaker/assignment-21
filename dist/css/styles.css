@@ -2,10 +2,13 @@
   box-sizing: border-box; }
 
 body {
-  background: limegreen; }
+  background: limegreen;
+  font-family: 'Libre Franklin', 'Helvetica Neue', 'Helvetica', sans-serif; }
 
-h2 {
-  color: maroon;
-  border-bottom: 4px solid maroon; }
+h1 {
+  color: maroon; }
+
+.glyphicon {
+  float: right; }
 
 /*# sourceMappingURL=styles.css.map*/

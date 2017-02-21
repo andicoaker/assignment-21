@@ -4,12 +4,16 @@
 
 body{
 	background: limegreen;
+	font-family: 'Libre Franklin', 'Helvetica Neue', 'Helvetica', sans-serif;
 }
 
 $txt-color: maroon;
 
-h2{
+h1{
 	color: $txt-color;
-	border-bottom: 4px solid $txt-color;
+
 }
 
+.glyphicon{
+	float: right;
+}
