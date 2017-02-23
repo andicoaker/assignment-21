@@ -3,17 +3,40 @@
 }
 
 body{
-	background: limegreen;
+	// background: limegreen;
 	font-family: 'Libre Franklin', 'Helvetica Neue', 'Helvetica', sans-serif;
 }
 
-$txt-color: maroon;
+.page-header{
+	margin: 20px;
+	padding: 0px;
+	border: none;
+	font-family: 'palatino';
+
+}
 
 h1{
-	color: $txt-color;
+	color: #ea8a22;
 
 }
 
 .glyphicon{
 	float: right;
+	color: black;
+}
+
+nav{
+	border-top: 1px #a8a5a5 solid;
+	border-bottom: 1px #a8a5a5 solid;
+	// color: #d3d3d3;
+}
+
+.btn-group{
+	margin-left: 100px;
+}
+
+.btn{
+	border: none;
+	color: #a8a5a5;
+	margin-right: 20px;
 }
