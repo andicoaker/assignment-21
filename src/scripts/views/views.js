@@ -1,8 +1,10 @@
+import Backbone from 'backbone';
 
 const MultiListingView = Backbone.View.extend({
     el: '.page-content',
 
   _buildHtmlTemplate: function(allListingsModel){
+
     return `
       <div class="col-md-3">
         <div class="">
@@ -30,26 +32,43 @@ const MultiListingView = Backbone.View.extend({
       </div>
       <div class="col-md-9">
         <div class="row">
-          <div class="col-md-4">
-            <div class="clearfix visible-xs-block"></div>
-            <div class="thumbnail">
-              <img src="">
-              <div class="caption">
-                <h4><strong>${allListingsModel.get('title')}<strong></h4>
-                <p>${allListingsModel.get('who_made')}</p>
-                <p>${allListingsModel.get('price')}</p>
-              </div>
-            </div>
-          </div>
+        <div class="clearfix visible-m-block"></div>
+
+
+            ${allListingsModel.map(function(item, i){
+              console.log(item)
+              let imageUrl
+              if(item.get('Images')[0].url_170x135 === undefined){
+                imageUrl = "hello"
+              }else{
+                imageUrl = item.get('Images')[0].url_170x135;
+              }
+              return `
+
+            <div class="col-md-4 listing-thumbnail">
+                <div class="thumbnail">
+                  <img src="${imageUrl}">
+                  <div class="caption">
+                    <h6>${item.get('title')}</h6>
+                    <p>${item.get('Shop').shop_name}</p>
+                    <p>$ ${item.get('price')}</p>
+                  </div>
+                </div>
+              </div>`
+
+            }).join('')
+            }
+
         </div>
       </div>`
   },
+
   render: function(data){
 		this.el.innerHTML = this._buildHtmlTemplate(data)
   }
 })
 
-const SingleListingView = Backbone.View.extend({
+export const SingleListingView = Backbone.View.extend({
 	el : '.page-content',
 
   _buildHtmlTemplate: function(detailsModel){
@@ -83,3 +102,5 @@ const SingleListingView = Backbone.View.extend({
 		this.el.innerHTML = this._buildHtmlTemplate(data)
 	}
 })
+
+export default MultiListingView
