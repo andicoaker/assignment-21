@@ -32,9 +32,6 @@ const MultiListingView = Backbone.View.extend({
       </div>
       <div class="col-md-9">
         <div class="row">
-        <div class="clearfix visible-m-block"></div>
-
-
             ${allListingsModel.map(function(item, i){
               console.log(item)
               let imageUrl
@@ -45,7 +42,8 @@ const MultiListingView = Backbone.View.extend({
               }
               return `
 
-            <div class="col-md-4 listing-thumbnail">
+              <div class="col-xs-6 col-s-5 col-md-4 listing-thumbnail">
+              <div class="clearfix visible-md-block"></div>
                 <div class="thumbnail">
                   <img src="${imageUrl}">
                   <div class="caption">
@@ -76,7 +74,7 @@ export const SingleListingView = Backbone.View.extend({
       <div class="row">
         <div class="col-md-6">
           <div class="listing-image">
-            <img src="..." class="img-responsive" alt="Responsive image">
+            <img src="${detailsModel.get('Images')[0].url_570xN}" class="img-responsive" alt="Responsive image">
           </div>
           <div class="listing-desc">
             <h4>Item Details</h4>

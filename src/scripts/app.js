@@ -23,7 +23,7 @@ const AppRouter = Backbone.Router.extend({
 	},
 
   showAllProductListings: function(){
-    console.log('IS ANYTHING WORKING?!!!');
+    // console.log('IS ANYTHING WORKING?!!!');
 
 		let etsyCollection = new EtsyCollection()
 		etsyCollection.fetch().then(function(serverRes){
@@ -35,9 +35,13 @@ const AppRouter = Backbone.Router.extend({
   },
 
   showSingleProductListing: function(){
+		console.log('IS ANYTHING WORKING?!!!');
+		
     let singleProductModel = new EtsyListingsModel()
     singleProductModel.fetch().then(function(){
-      let viewInstance = new SingleProdcutView()
+			console.log(singleProductModel);
+
+      let viewInstance = new SingleListingView()
       viewInstance.render(singleProductModel)
     })
   }

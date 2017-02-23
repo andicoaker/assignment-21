@@ -1,19 +1,18 @@
 import Backbone from 'backbone';
 export const EtsyListingsModel = Backbone.Model.extend({
 
-  // initialize: function(optionsObj){
-	// 	this._singleFetch = optionsObj.singleFetch
+  // initialize: function(listingObj){
+	// 	this._singleFetch = listingObj.singleFetch
 	// },
 
-  initialize: function(listingID){
-		// this.url = `https://openapi.etsy.com/v2/listings/${listing_id}.js?api_key=kt6smfs5wci2wuc9rv7jipxm&callback=?&`
+  initialize: function(listingId){
+		this.url = `https://openapi.etsy.com/v2/listings/${listingId}.js?api_key=kt6smfs5wci2wuc9rv7jipxm&callback=?&includes=Images,Shop&callback=?`
 	},
 
-  url: `https://openapi.etsy.com/v2/listings/active.js?api_key=kt6smfs5wci2wuc9rv7jipxm&callback=?&includes=Images,Shop&callback=?`,
+  // url: `https://openapi.etsy.com/v2/listings/active.js?api_key=kt6smfs5wci2wuc9rv7jipxm&includes=Images,Shop&callback=?`,
 
 })
 
-console.log('addiun shop')
 
 export const EtsyCollection = Backbone.Collection.extend({
 
