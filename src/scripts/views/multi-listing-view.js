@@ -3,16 +3,16 @@ import Backbone from 'backbone';
 const MultiListingView = Backbone.View.extend({
   el: '.page-content',
 
-events: {
-  "click .thumbnail": 'handleShowSingleListing'
-},
+  events: {
+    "click .thumbnail": 'handleShowSingleListing'
+  },
 
-handleShowSingleBtn: function(evt){
-  console.log(evt.target)
-  console.log(evt.target.dataset.id)
-  let productId = evt.target.dataset.id
-  window.location.hash = `products/${productId}`
-},
+  handleShowSingleBtn: function(evt){
+    console.log(evt.target)
+    console.log(evt.target.dataset.id)
+    let productId = evt.target.dataset.id
+    window.location.hash = `products/${productId}`
+  },
 
 
   _buildHtmlTemplate: function(allListingsModel){
@@ -46,8 +46,8 @@ handleShowSingleBtn: function(evt){
         <div class="row">
             ${allListingsModel.map(function(item, i){
               console.log(item)
-              // let imageUrl
-              if(item.get('Images')[0].url_170x135 === undefined){
+              let imageUrl
+              if(typeof item.get('Images')[0] === 'undefined'){
                 imageUrl = "hello"
               }else{
                 imageUrl = item.get('Images')[0].url_170x135;

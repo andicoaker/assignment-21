@@ -6,10 +6,19 @@ export const EtsyListingsModel = Backbone.Model.extend({
 	// },
 
   initialize: function(listingId){
-		this.url = `https://openapi.etsy.com/v2/listings/${listingId}.js?api_key=kt6smfs5wci2wuc9rv7jipxm&callback=?&includes=Images,Shop&callback=?`
+		this.url = `https://openapi.etsy.com/v2/listings/${listingId}.js?api_key=kt6smfs5wci2wuc9rv7jipxm&includes=Images,Shop&callback=?`
 	},
 
-  // url: `https://openapi.etsy.com/v2/listings/active.js?api_key=kt6smfs5wci2wuc9rv7jipxm&includes=Images,Shop&callback=?`,
+  parse: function(serverRes){
+    // if serverRes.results === 'undefined' then collection has already parsed response
+      if (typeof serverRes.results === 'undefined') {
+        return serverRes
+      } else {
+        // otherwise model instance needs to parse the response
+        return serverRes.results[0]
+      }
+
+  }
 
 })
 

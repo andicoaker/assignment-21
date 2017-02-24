@@ -35,17 +35,16 @@ const AppRouter = Backbone.Router.extend({
   },
 
   showSingleProductListing: function(idVal){
-		console.log('IS ANYTHING WORKING?!!!');
+		// console.log('IS ANYTHING WORKING?!!!');
 
-    // let singleProductModel = new EtsyListingsModel()
-    // singleProductModel.fetch().then(function(){
-		// 	console.log(singleProductModel);
+    let singleProductModel = new EtsyListingsModel(idVal)
+    singleProductModel.fetch().then(function(){
+			// console.log(singleProductModel);
 
       let viewInstance = new SingleListingView()
-      viewInstance.render(idVal)
-		
-  },
-
+      viewInstance.render(singleProductModel)
+		})
+	}
 })
 
 const myApp = new AppRouter()
