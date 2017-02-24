@@ -7,11 +7,11 @@ const MultiListingView = Backbone.View.extend({
     "click .thumbnail": 'handleShowSingleListing'
   },
 
-  handleShowSingleBtn: function(evt){
-    console.log(evt.target)
-    console.log(evt.target.dataset.id)
-    let productId = evt.target.dataset.id
-    window.location.hash = `products/${productId}`
+  handleShowSingleListing: function(evt){
+
+    let detailsId = evt.currentTarget.dataset.id
+    console.log(detailsId)
+    window.location.hash = `details/${detailsId}`
   },
 
 
@@ -45,7 +45,7 @@ const MultiListingView = Backbone.View.extend({
       <div class="col-md-9">
         <div class="row">
             ${allListingsModel.map(function(item, i){
-              console.log(item)
+              // console.log(item)
               let imageUrl
               if(typeof item.get('Images')[0] === 'undefined'){
                 imageUrl = "hello"
@@ -54,9 +54,9 @@ const MultiListingView = Backbone.View.extend({
               }
               return `
 
-                <div class="col-xs-6 col-s-5 col-md-4 listing-thumbnail">
+                <div class="col-xs-6 col-s-5 col-md-4 listing-thumbnail" >
                 <div class="clearfix visible-md-block"></div>
-                  <div class="thumbnail">
+                  <div class="thumbnail "data-id="${item.get('listing_id')}">
                     <img src="${imageUrl}">
                     <div class="caption">
                       <h6>${item.get('title')}</h6>

@@ -28,6 +28,8 @@ const AppRouter = Backbone.Router.extend({
 		let etsyCollection = new EtsyCollection()
 		etsyCollection.fetch().then(function(serverRes){
 			let productListignsModelsList = etsyCollection.models
+			console.log(etsyCollection);
+
 
 			let viewInstance = new MultiListingView()
 			viewInstance.render(productListignsModelsList, 'root', {})
@@ -39,7 +41,7 @@ const AppRouter = Backbone.Router.extend({
 
     let singleProductModel = new EtsyListingsModel(idVal)
     singleProductModel.fetch().then(function(){
-			// console.log(singleProductModel);
+			console.log(singleProductModel);
 
       let viewInstance = new SingleListingView()
       viewInstance.render(singleProductModel)
